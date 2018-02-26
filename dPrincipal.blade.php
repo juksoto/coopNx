@@ -1,20 +1,18 @@
-<header id="navbar" class="zone-one">
-	<div class="container">
-		<div class="row">
+<header>
+	<section class="container">
+		<section class="row">
 			{!! $blockZone1 !!}
-		</div>
-	</div>
+		</section>
+	</section>
 </header>
-
-<div id="main-home" class="zone-wp zone-two">
-	{!! $blockZone5 !!}
-	<div class="container-fluid">
-		<div class="row">	
+<section class="zone-wp zone-two">
+	<section class="container-fluid">
+		<section class="row">	
     		{!! $blockZone2 !!}
-    	</div>
-    </div>
-</div>
+    	</section>
+    </section>
+</section>
 
-<div id="footer-box">
+<section id="footer-box">
     {!! $blockZone3 !!}
-</div>
+</section>
