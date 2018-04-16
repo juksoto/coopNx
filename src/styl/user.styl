@@ -1,5 +1,5 @@
 /*
-* Sede electronica
+* Cooptenjo
 * [name project]
 */	
 
@@ -10,7 +10,7 @@
 */
 @import url('print.css');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
-
+@import 'font.styl';
 //
 // We declare the fonts for the headers, the content, the main font and the secondary font.
 //
@@ -77,7 +77,7 @@ fontSecondary()
 	colorGrayLigth 	= #EFEFEF
 		
 	// Zone Colours
-	colorSectionTwo 	= colorRed
+	colorSectionTwo 	= colorGolden
 	colorSectionThree 	= colorYellow
 	colorSectionFour 	= colorLime
 	colorSectionFive 	= colorBlue
@@ -186,7 +186,7 @@ fontAwesome()
 // header
 header
 	background-color white
-	padding 0.5em 0
+	padding-bottom 0.5em
 	box-shadow 0px 0px 5px 0px rgba(169, 167, 167, 0.75)
 	position relative
 	&:before
@@ -197,7 +197,7 @@ header
 		position absolute
 		background gradientGolden
 		display block
-		height 5px
+		height 8px
 	.nxBlock
 		padding 0
 	.row
@@ -224,6 +224,7 @@ header
 		.logo-img
 			max-width 280px
 	.nav-bar
+		overflow visible 
 		.navbar-collapse
 			border 0
 		.navbar-default
@@ -234,25 +235,164 @@ header
 				background-color colorPrimary
 				border-radius 0.5em
 				li
-					a
+					> a
 						text-transform uppercase
 						color white
 						font-size 0.9em
 						&:hover
 							background-color colorGolden
 							color white
+						&:visited
+							color white
 					&:first-child a
-						border-radius-top 0.5em
-						border-radius-left 0.5em
+						border-radius 0.5em
 					&:last-child a
-						border-radius-bottom 0.5em
-						border-radius-right 0.5em
-					.dropdown
+						border-radius 0.5em
+					.dropdown-menu
+						min-width 0
+						right inherit
 						a
-							text-transform initial
 							color colorGrayDark2
+							display block
+							font-size 1.1em
+							line-height 1.3
+							padding 0.5em
+							padding 1em
+							text-align left
+							text-transform initial
+							&:hover
+								background-color colorGrayLigth
+								color colorPrimary
+						h2
+							color colorPrimary
+							margin 0 
+							margin-bottom 0.5em
+							position relative
+							&:before
+								background-color colorPrimary
+								bottom -0.2em
+								content ""
+								display block
+								height 0.1em
+								left 0
+								position absolute
+								width 0.6em
+							span
+								font-size 0.5em
+								font-weight bold
+								letter-spacing 0.05em
+								text-transform uppercase
+	.toolbar
+		overflow visible 
+		padding-bottom 0.7em
+		ul
+			margin 0
+			float right
+			a
+				color #161616
+				font-size 0.9em
+				&:hover
+					color colorPrimary
+			.dropdown
+				
+				button
+					border 0
+					background-color transparent
+					color colorGrayDark
+					font-size 0.9em
+					display block
+					padding 0
+					&:hover
+						background-color doLight(colorGrayLigth)
+						color colorPrimary
+				.dropdown-menu
+					right 0
+					left initial
+					padding 0.6em
+					li
+						a
+							background-color transparent
+		.open > .dropdown-menu
+			min-width 200px
+@media screen and (max-width: 1200px)
+	header .nav-bar
+		nav ul.megamenu	li a
+			padding-left 0.5em
+			padding-right 0.5em
+			
+@media screen and (max-width: 992px)
+	header 
+		.nav-bar
+			nav ul.megamenu
+				text-align center
+				li 
+					display inline-block
+					float none !important
+					a
+						width 100%
+						padding-left 1em
+						padding-right 1em
+		.navbar-collapse
+			padding 0
+		.navbar-nav
+			float none !important
+		.logo
+			margin-bottom 0.5em
+			a
+				display block
+				text-align center
+				img
+					display inline-block
+@media screen and (max-width:500px)
+	header .toolbar ul .dropdown
+		position inherit
+		.dropdown-menu
+			left 0
+			width 100%
+			min-width 0 !important
+@media screen and (max-width: 768px)
+	header 
+		.nav-bar
+			margin-top -3.7em
+			nav ul.megamenu
+				background-color white
+				padding-top 1em
+				li 
+					display block
+					float none !important
+					a
+						width 100%
+						padding 0.5em
+						color colorGrayDark2
+						font-size 1.1em
 						
+			.dropdown-menu
+				text-align center
+				max-width none !important
+				width 100%
+				a
+					font-size 1.2em !important
+					text-align center !important
+		.logo a
+			text-align left
+		
+			
+/** Zona de beneficios de la cooperativa **/
+colorSection = colorSectionTwo
 .zone-two
+	background-color colorGrayLigth
+	.title-zone
+		h3
+			color colorSection
+			position relative
+			&:before
+				content ""
+				width 20px
+				height 5px
+				position absolute
+				bottom -5px
+				left 0
+				background-color colorGolden
 	.slider-main
 		.nxBlock 
 			padding 0			
@@ -290,17 +430,450 @@ header
 							color white
 							margin 0
 							width 80%
-						
-						
-						
+	.button-featured
+		margin-top -5em
+		ul 
+			display grid
+			grid-template-columns repeat(4, 1fr)
+			a
+				display block
+				width 100%
+				position relative
+				img					
+					width 100%
+					height auto
+				&:hover
+					&:after
+						content ""
+						background-color rgba(colorPrimary, 0.5)
+						width 96%
+						height 89%
+						position absolute
+						top 6px
+						left 5px
+						border-radius 10px
+	.iconos-beneficios
+		.slick-slide
+			a
+				display inline-flex
+				justify-items center
+				align-items center
+				width 100%
+				.mediaPosition
+					display inline-block
+					float left
+					width 22%
+					color colorGolden
+				.title
+					display inline-block
+					float left
+					width 70%
+					color colorGrayDark2
+				&:hover
+					background-color white
+		.nxBlockDynamicLinks
+			text-align center
+			.btn
+				background-color transparent
+				border 1px solid colorGrayDark2
+				border-radius 0
+				color colorGrayDark2
+				display inline-block
+				letter-spacing 0.15em
+				padding 0.3em 2em
+				text-transform uppercase
+				&:hover
+					background-color colorGolden
+					color white
+					-webkit-filter: brightness(1.5); /* Safari 6.0 - 9.0 */
+					filter: brightness(1.5)
+	.btn-afiliarse
+		display block
+		&:hover
+			img
+				-webkit-filter: brightness(1.2); /* Safari 6.0 - 9.0 */
+				filter: brightness(1.2)
+
+	.layout1902
+		position relative
+	.enlaces-simuladores
+		background-color white
+		border-radius 0 0 10px 10px
+		box-shadow 0px 0px 8px 0px rgba(0,0,0,0.75)
+		display inline-block
+		position absolute
+		right 0
+		top 0
+		width auto 
+		.nxBlock
+			padding 1em
+		a
+			display inline-block
+			color colorGrayDark2
+			font-size 1.2em 
+			font-weight bold
+			line-height 1
+			&:nth-of-type(1)
+				text-align left
+				padding-right 60px
+				position relative
+				margin-right 5px
+				&:after
+					content ""
+					background url("../img/ico-simulador.jpg") no-repeat
+					background-size contain
+					width 50px
+					height 50px
+					display inline-block
+					position absolute
+					right 0
+					top -10px
+			&:nth-of-type(2)
+				text-align right
+			small
+				color colorPrimary
+				font-size 0.5em
+				display block
+				text-transform uppercase
+				font-weight normal
+			&:hover
+				color colorGolden
+				small
+					color colorGolden
+
+@media screen and (max-width: 992px)				
+	.zone-two 
+		.slider-main .slick-slide
+			.item a
+				.new-tools-box 
+					p.title
+						font-size 1.5em
+					p.description
+						font-size 2.2em
+		.button-featured
+			ul 
+				grid-template-columns repeat(4, 1fr)
+		.beneficios-layout .row
+			margin 0
+		.iconos-beneficios
+			.slick-slide
+				.item
+					float left
+					a
+						display inline-block
+						width 100%
+						text-align center
+						.mediaPosition
+							display block
+							width 100%
+						.title
+							display block
+							width 100%
+	.enlaces-simuladores
+		left 35%
+		right inherit
+		
+	.btn-afiliarse
+		text-align center
+		img
+			max-width 320px
+			height auto
+			margin 0 auto
+			display inline-block
+
+@media screen and (max-width: 768px)				
+	.zone-two 
+		.slider-main .slick-slide
+			.item 
+				a
+					&:before
+						background-color rgba(black,0.5)
+						height 100%
+						left 0%
+						width 100%
+						position  absolute
+						transform skew(0deg)
+				.new-tools-box 
+					left 0 !important
+					width 100% !important
+					text-align center
+					p.title
+						font-size 1.5em !important
+						width 100%
+					p.description
+						font-size 2.8em !important
+						width 100%  !important
+	
+		.button-featured
+			margin-top 0
+			ul 
+				grid-template-columns repeat(2, 1fr)
+				a img					
+					width 80%
+					margin 0 auto
+					height auto
+				a:hover:after
+					width 79%
+					left 39px
+		.enlaces-simuladores
+			box-shadow none
+			left 0
+			padding 2em 1em
+			position relative
+			right inherit
+			text-align center
+			width 100%
+			a
+				font-size 2em
+				&:nth-of-type(1)
+					&:after
+						top 0
+	.zone-two .iconos-beneficios .slick-slide .item a .title
+		font-size 1.2em 
+	
+@media screen and (max-width: 550px)				
+	.zone-two 
+		.button-featured
+			margin-top 0
+			ul 
+				grid-template-columns repeat(1, 1fr)
+				a img					
+					width 60%
+					margin 0 auto
+					height auto	
 					
+@media screen and (max-width: 290px)				
+	.zone-two 
+		.enlaces-simuladores
+			a
+				display block
+				padding 1em 0 !important
+				text-align center !important
+				&:nth-of-type(1)
+					&:after
+						content ""						
+						background none
+.zone-three
+	padding 2em 0
+	.tab-general
+		.tabs-bottom
+			min-height 300px
+		.ui-tabs-nav
+			width 100%
+			text-align center
+			margin-bottom 1em
+			li
+				display inline-block
+				float none
+				a
+					display block
+					padding 0.35em 1.5em
+					text-transform uppercase
+					letter-spacing 0.15em
+					font-size 0.9em
+		.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited
+			background-color colorPrimary
+			color white
+			position relative
+			&:before
+				border-left 15px solid transparent
+				border-right 15px solid transparent
+				border-top 15px solid colorPrimary
+				bottom -0.6em
+				content ""
+				height 0
+				left 50%
+				margin-left -15px
+				position absolute
+				width 0
+	.slider-news
+		.slick-slide
+			.item
+				a
+					.image
+						width 25%
+						height 70px
+						display inline-block
+						float left
+						transition 0.15s ease-in-out all
+						&:after
+							content ""
+						&:before
+							transition 0.15s ease-in-out all
+					.title
+						width 75%
+						display inline-block
+						height auto
+						transition 0.15s ease-in-out all
+						font-size 1em
+					.date
+						display none
+						float left
+						padding 0.5em
+					&:hover
+						.image
+							&:before
+								background-color rgba(colorPrimary,0.6)
+								content ""
+								transition 0.15s ease-in-out all
+							&:after
+								content ""
+						.title
+							color colorPrimary
+							transition 0.15s ease-in-out all	
+		.nxBlockDynamicLinks		
+			text-align center
+			ul
+				margin 0
+			.btn
+				background-color transparent
+				border 1px solid colorGrayDark2
+				border-radius 0
+				color colorGrayDark2
+				display inline-block
+				font-size 0.8em
+				letter-spacing 0.15em
+				padding 0.3em 2em
+				text-transform uppercase
+				&:hover
+					background-color colorPrimary
+					color white
+	.slider-events
+		.slick-slide
+			div:nth-child(even)
+				background-color colorGrayLigth
+			.item
+				a
+					.image
+						display none
+					.title
+						display inline-block
+						transition 0.15s ease-in-out all
+						font-size 1em
+						height 4.5em
+					.date
+						display inline-block
+						float left
+						transition 0.15s ease-in-out all
+						color colorPrimary
+						height 4.5em
+						padding 0.4em
+						.day
+							font-size 1.8em
+					&:hover
+						.date
+							background-color colorPrimary
+							color white
+						.title
+							color colorPrimary
+							transition 0.15s ease-in-out all	
+							
+		.nxBlockDynamicLinks		
+			text-align center
+			ul
+				margin 0
+			.btn
+				background-color transparent
+				border 1px solid colorGrayDark2
+				border-radius 0
+				color colorGrayDark2
+				display inline-block
+				font-size 0.8em
+				letter-spacing 0.15em
+				padding 0.3em 2em
+				text-transform uppercase
+				&:hover
+					background-color colorPrimary
+					color white
+	.ads-section
+		padding-top 5%
+
+@media screen and (max-width: 768px)				
+	.zone-three
+		.logos-slideset
+			text-align center
+			.slick-slide .item
+				display block !important
+				width 100% !important
+				text-align center !important
+				a 
+					display block
+					img
+						display inline-block !important
+	.zone-three .slider-news .slick-slide .item a .title
+		font-size 1.2em
+					
+.bottom
+	background-color colorGrayLigth
+	.desc-bottom
+		position relative
+		h3
+			color colorPrimary
+			letter-spacing 0.05em
+			font-weight bold
+			padding-left 1.7em
+		p
+			padding-left 2.7em	
+			font-weight bold
+		&:before
+			fontAwesome()
+			content "\f095"
+			font-size 3em
+			color colorPrimary
+			position absolute
+			left 0
+			top 30%
+	.enlaces-bottom
+		text-align center
+		.nxBlock
+			padding 0
+		a
+			display block
+			padding 0.3em 2em
+			margin 0.5em
+			background-color colorPrimary
+			color white
+			border 1px solid transparent
+			transition 0.1s ease-in-out all
+			text-transform uppercase
+			font-size 0.9em
+			font-weight 300
+			&.c-btn
+				transition 0.1s ease-in-out all
+				border-color colorGrayDark2
+				color colorGrayDark2
+				background-color transparent
+			&:hover
+				transition 0.1s ease-in-out all
+				background-color colorGrayDark2
+				color white
+@media screen and (max-width: 768px)				
+	.bottom
+		.desc-bottom
+			text-align center
+			&:before
+				content ""
+			p, h3
+				padding-left 0
+				text-align center
+		.row
+			margin-left 0
+			margin-right 0
 
 footer 
-	background-color colorPrimary
-	padding 1.5em 0 3em 0
-	box-shadow 5px 0px 0px rgba(0,0,0,.25)
-	margin-top 1em
+	background-color #1e1e1e
+	padding 1em
 	position relative
+	&:after
+		content ""
+		width 100%
+		left 0
+		top 0
+		position absolute
+		background gradientGolden
+		display block
+		height 8px
+
 	*
 		color white
 		font-size 15px
@@ -311,9 +884,11 @@ footer
 			color white
 	.list-enlaces
 		padding-top 0
+		text-align center
 		a
-			display block
+			display inline-block
 			color white
+			margin 0.5em
 	.logo-footer
 		text-align center
 		display block
@@ -344,880 +919,23 @@ footer
 * Web Layouts Sede Electronica
 * [description] Escribimos el CSS de nuestro portal
 */
+.cInterno, .cInternoAmplio
+	min-height 500px
+	padding-top 2em
+	padding-bottom 2em
+	
 .modPath.breadcrumb
 	font-size 0.8em
-h1.dSede-name
-	font-size 1.6em
-	small
-		display block
-		font-size 0.5em
-		font-weight 700
-		letter-spacing 0.15em
-		text-transform uppercase
-		color colorPrimary
-header.dSede-header
-	.nxBlock
-		padding 0
-	.row
-		margin 0
-	.header-bar
-		padding 0.7em 0
-		background-color #f1f2f3
-		box-shadow 0px 0px 10px rgba(0,0,0,.25)
-		.toolbar-search
-			.search-box
-				height 40px
-				border-radius 0
-			.input-group-btn
-				.btn
-					border-radius 0
-					font-size 17px
-					height 40px
-					margin-left 0.6em
-					padding-left 1.2em
-					padding-right 1.2em
-		.toolbar
-			padding 0
-			overflow visible 
-			.toolbar-menu
-				float left
-				margin-top 0.6em
-				a
-					font-size 0
-					color colorGrayDark
-					display block
-					i
-						font-size 18px
-					&:hover
-						i
-							color colorPrimary
-			.tool-login
-				overflow visible 
-				padding-top 0.2em 
-				padding-right 0.5em
-				ul.nav
-					float right
-					.dropdown
-						a
-							padding 0
-						.dropdown-menu
-							right 0
-							left initial
-							li
-								a
-									border-top 1px solid #ededed
-									display block
-									line-height 2.2
-									padding 0.2em 1.2em 0.2em 2em
-									position relative
-									.fa
-										left 0.5em
-										position absolute
-										top 10px
-									&:hover
-										background-color doLight(colorGrayLigth)
-	.header-tools
-		background-color white
-		border-bottom 1px solid #ededed
-		.title-page
-			h1
-				margin 0
-				font-size 1.3em
-				padding 0.6em
-				color colorPrimary
-				font-weight 300
-		.nx-bar
-			padding 0.5em 0 0em 0
-			overflow visible
-			text-align right
-			a
-				background-color colorGrayLigth
-				color colorGrayDark
-				font-size 1em
-				display block
-				padding 0.5em 1.3em 
-				&:hover
-					background-color doLight(colorGrayLigth)
-					color colorPrimary
-			.dropdown
-				button
-					border 0
-					background-color colorGrayLigth
-					color colorGrayDark
-					font-size 1em
-					display block
-					padding 0.5em 1.3em 
-					&:hover
-						background-color doLight(colorGrayLigth)
-						color colorPrimary
-				.dropdown-menu
-					right 0
-					left initial
-					padding 0.6em
-					li
-						a
-							font-size 0.9em
-							background-color transparent
-							&:hover
-								background-color doLight(colorGrayLigth)
-	&.navbar-fixed-top
-		box-shadow 0px 2px 5px rgba(0,0,0,0.1)
-.dSede-content
-	padding-top 4em
-	h1
-		font-size 1.6em
-	.panel
-		border 1px solid #ededed
-		.panel-content-request
-			padding 1em
-			.panel-heading
-				padding-left 0
-				h2
-					color colorPrimary
-					display block
-					font-size 1.4em
-					font-weight 300
-					margin 0
-					padding-bottom 0.5em
-					text-align left
-				.btn-circle
-					position absolute
-					top 1em
-					right 2em
-					padding 0.7em 0.4em 0.7em 0.7em
-					height 40px
-					width 40px
-			.panel-tab
-				padding 0
-				border 1px solid #ededed
-				border-left 0
-				border-right 0
-				ul
-					margin 0
-					li
-						a
-							font-size 0.8em
-							display block
-							padding 0.5em 0.8em
-							border-bottom 1px solid transparent
-							transition 0.2s ease-in-out all
-							.badge
-								margin-top -1px
-							&.active
-								border-bottom 1px solid colorPrimary
-								color colorPrimary
-								.badge
-									background-color colorPrimary
-							&:hover
-								border-bottom 1px solid colorPrimary
-								color colorPrimary
-								transition 0.2s ease-in-out all
-								.badge
-									background-color colorPrimary
-			.panel-table-filter
-				padding 0.5em 0
-				label
-					font-weight 300
-					font-size 0.9em
-			.panel-table
-				thead
-					tr
-						td
-							font-size 0.8em !important
-							color colorGrayDark
-				tbody
-					.table-panel-ticket
-						min-width 55px
-						font-size 0.9em
-					.table-panel-date
-						font-size 0.8em
-						small
-							display block
-					.table-panel-tramite
-						font-size 0.9em
-					.table-panel-status
-						.label
-							min-width 110px
-							display inline-block
-							padding 0.5em
-			.panel-content-actions
-				padding 1em 0
-				ul
-					li
-						a
-							display block
-							color colorPrimary
-							padding 0.4em 1em
-							text-decoration underline
-							font-size 0.9em
-							&:hover
-								background-color colorPrimary
-								color white
-								text-decoration none
-			.row
-				margin 0
-		.panel-content-filter
-			.panel-content-filter--heading
-				padding 0.6em 0
-				h2
-					color colorPrimary
-					display block
-					font-size 1.4em
-					font-weight 300
-					margin 0
-					padding-bottom 0.5em
-					text-align left
-				.btn-circle
-					position absolute
-					top 1em
-					right 1em
-					padding 0.7em
-					height 40px
-					width 40px
-			.panel-content-filter--list
-				background-color #f9f9f9
-				padding 1em
-				.nxBlock
-					padding 0
-				ul
-					li
-						display block
-						a
-							display block
-							padding 1em 2.2em 1em 3.2em
-							font-size 0.9em
-							color colorGrayDark2
-							border-bottom 1px solid #ededed
-							position relative
-							.fa
-								position absolute
-								left 10px
-								font-size 1.6em
-								top 25%
-							.badge
-								position absolute
-								right 0
-								background-color colorGrayDark
-								top 25%
-							&:hover
-								background-color transparent
-								color colorPrimary
-								.title
-									color colorPrimary
-								.mediaPosition
-									color colorPrimary
-								.badge
-									background-color colorPrimary
-	.panel-content-filter--list
-		padding 1em 2em
-		.tab-general
-			.ui-tabs .ui-tabs-nav 
-				li
-					background transparent
-					margin 0 0.5em
-					a.ui-tabs-anchor
-						/*letter-spacing 0.12em*/
-						padding 0.6em 1em
-						border-bottom 1.5px solid transparent
-						font-weight bold
-						&:hover
-							background-color transparent
-							color colorBlue
-			.ui-tabs-active
-				a
-					background-color transparent
-					color colorBlue
-					border-bottom 1.5px solid colorBlue !important
-					border-color colorBlue !important
-					&:focus
-						outline 0
-			.ui-tabs-panel
-				padding 0 1em
-				padding-left 2em
-			.ui-widget-header
-				border 0
-				background none
-				margin-bottom 15px
-				font-family 'Poppins', Arial, sans-serif
-				font-size 1.2em
-		.item
-			a
-				display block
-				padding 1em 2.2em 1em 2.2em
-				font-size 0.9em
-				color colorGrayDark
-				border-bottom 1px solid #ededed
-				position relative
-				text-align left
-				.fa.mediaPosition
-					position absolute
-					left 0
-					font-size 1.6em
-					top 25%
-					color colorGrayDark
-				.badge
-					position absolute
-					right 0
-					background-color colorGrayDark
-					top 25%
-				&:hover
-					color colorPrimary
-					background-color transparent
-					.fa.mediaPosition
-						border-radius 0
-						color colorPrimary
-					.title
-						color colorPrimary
-					.badge
-						background-color colorPrimary
-.dSede-bottom
-	.informacion-solicitud
-		h3
-			text-align center
-			display block
-			span
-				display block
-	.list-enlaces
-		a
-			display block
-			padding 1em 2.2em 1em 2.2em
-			font-size 0.9em
-			color colorGrayDark
-			border-bottom 1px solid #ededed
-			position relative
-			fontForContent()
-			&:before
-				position absolute
-				left 0
-				font-size 1.4em !important
-				top 25%
-				fontAwesome()
-			.badge
-				position absolute
-				right 0
-				background-color colorGrayDark
-				top 25%
-			&:hover
-				color colorPrimary
-				.badge
-					background-color colorPrimary
-	.ads-block
-		a
-			display block
-			text-align center
-			.image
-				max-width 300px
-				display inline-block
-#main-content.dSede
-	padding-top 4.4em
-.dSede
-	.tramite-item
-		padding 0.5em
-		&:nth-child(odd)
-			background-color colorGrayLigth
-			
-@media screen and (max-width:991px)	
-	body
-		padding-top 0 !important
-	header
-		display block
-		position relative !important
-	.dSede-content
-		padding-top 0
-	.dSede .dSede-content .panel .panel-content .row-eq-height
-		display block !important
-@media screen and (max-width:768px)	
-	.dSede 
-		.dSede-content
-			.panel .panel-content 
-				.panel-content-filter--list
-					.slick-track
-						width 100% !important
-						transform: inherit !important
-						.slick-slide
-							width 100% !important
-							.item
-								width 100%
-					.slick-dots
-						display none !important
-						
-		.bottom .list-enlaces
-			padding 1em 2em
-			.informacion-solicitud
-				.slick-track
-						width 100% !important
-						transform: inherit !important
-						.slick-slide
-							width 100% !important
-							.item
-								width 100%
-					.slick-dots
-						display none !important
 
-/*	
-* End sede electronica
-*/
 
 /* Sidebar */
 .wrapper
 	display block
 
-#sidebar
-	background-color white
-	box-shadow 3px 3px 3px rgba(0, 0, 0, 0.2)
-	color colorGrayDark
-	height 100vh
-	left -250px
-	overflow-y scroll
-	padding 1em
-	position fixed
-	top 0
-	transition all 0.3s
-	width 250px
-	z-index 999
-	overflow scroll
-	> div
-		&:focus
-			outline 0
-	&.active
-		left 0
-	a
-		display block
-		padding 1em 1.8em
-		font-size 0.8em
-		font-weight 300
-		position relative
-		border-top 1px solid #ededed
-		color colorGrayDark
-		&:hover
-			background-color colorGrayLigth
-			text-decoration none
-		.fa
-			position absolute
-			left 0
-			top 5px
-		&:visited
-			color colorGrayDark
-	.search-form
-		input
-			border-radius 0.8em
-			color colorGrayMedium
-		.fa-placeholder
-			font-family "FontAwesome"
-				
-	.sidebar-header
-		padding 1em 1em 1em 0
-		h3
-			margin 0
-		p
-			color white
-			padding 0.8em 0	
-			
-		a[aria-expanded="true"]
-			color colorGrayDark	 
-	.sidebar-menu
-		padding 1em 0.8em 1em 0.8em
-	
-	a[data-toggle="collapse"]
-		position relative
-	a[aria-expanded="false"]::before, a[aria-expanded="true"]::before
-		content "\f067"
-		display block
-		position absolute
-		right 10px
-		top 15px
-		fontAwesome()
-		font-size 0.8em
-	a[aria-expanded="true"]::before
-		content "\f068"
-		
-.overlay
-	position fixed
-	width 100vw
-	height 100vh
-	background rgba(255, 255, 255, 0.7)
-	z-index 998
-	display none
-	left 0
-	top 0
-
-#dismiss
-	cursor pointer
-	height 35px
-	line-height 35px
-	position absolute
-	right 10px
-	text-align center
-	top 10px
-	transition all 0.3s
-	width 35px
-	&:hover
-		background-color #fff
-		color colorBlue
-/* end sidebar */
-
 .configHighContrastTools
 	* img
 		opacity 0 !important
 		
-/* Buscador lateral */
-.dModRegistro.dSede
-	.input-group
-		z-index 1
-		.input-group-btn a
-			padding 0.5em
-	#accordion ul
-		list-style none
-		padding-left 20px
-		a
-			&:before
-				font-family 'FontAwesome'
-				content '\f105'
-				display inline-block
-			&:hover:before
-				transition all 0.25s ease-in-out
-				margin-left 5px;
-/* end Buscador lateral */
-/* Dynamic de iconos - internos */
-.dModPublicaciones .nxBlockDesign1.nxBlockDynamicLayout1 .item a
-	display block
-	text-align center
-
-@media (max-width: 767px)
-	.dModPublicaciones #main-content #infoPrincipal
-		padding inherit
-		
-/* login y register */
-.dLogin
-	padding-top 0
-	header
-		position relative
-		.header-bar
-			background-color transparent
-			box-shadow none
-		.toolbar-login
-			.toolbar-login-ingresar, .toolbar-login-registro 
-				display none
-		.logo button
-			color colorGrayDark2
-	.login-box
-		.loginBox-uwrapper
-			.loginBox-form-title
-				text-align center
-				text-transform uppercase
-				font-size 1.3em
-				font-weight 600
-				letter-spacing 0.15em
-				margin-bottom 0.8em
-			.loginBox-tabs
-				margin 0
-				li
-					background-color colorGrayLigth
-					text-align center
-					min-height 49px
-					a
-						font-size 0.78em
-						text-transform uppercase
-						color colorGrayDark2
-						display block
-						padding 1.1em 0
-						font-weight 700
-						letter-spacing 0.1em
-					h3
-						font-size 0.78em
-						text-transform uppercase
-						margin 0 
-						padding 1.2em
-						font-weight 700
-						letter-spacing 0.1em
-					&.loginBox-tabs-item--active
-						background-color white
-						color colorPrimary
-			.loginBox-wform
-				background-color white
-				padding 1.2em
-				.form-group
-					margin-left 0
-					margin-right 0
-					label
-						font-size 0.7em
-						text-transform uppercase
-						font-weight 600
-						color colorGrayDark2
-						letter-spacing 0.15em
-						margin-bottom 0.5em
-					.loginBox-form-input.form-control
-						background-color transparent
-						border 0
-						border-bottom 1px solid colorGrayDark2
-						border-radius 0
-						color colorGrayDark2
-						box-shadow none
-						&:focus
-							box-shadow inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
-				input:-webkit-autofill,
-				input:-webkit-autofill:hover, 
-				input:-webkit-autofill:focus
-				input:-webkit-autofill, 
-				textarea:-webkit-autofill,
-				textarea:-webkit-autofill:hover
-				textarea:-webkit-autofill:focus,
-				select:-webkit-autofill,
-				select:-webkit-autofill:hover,
-				select:-webkit-autofill:focus 
-					border 0
-					-webkit-text-fill-color #333
-					-webkit-box-shadow 0 0 0px 1000px #fff inset
-					transition background-color 5000s ease-in-out 0
-					
-			.loginBox-actions
-				padding 0.8em 0
-				.loginBox-actions-reminder
-					color colorPrimary
-					font-size 0.9em
-				.loginBox-actions-button
-					text-align right
-					.btn
-						border-radius 0
-						padding 0.5em 1em
-						text-transform uppercase
-						font-size 0.8em
-						letter-spacing 0.15em
-						display inline-block
-	.login-info
-		padding-top 5%
-		.section-login-texto
-			padding 2em 0
-			h3
-				font-size 1.3em
-				font-weight 300	
-				line-height 1.5
-			.btn, .c-btn
-				font-size 0.78em
-				letter-spacing 0.15em	
-				padding 0.5em 1em
-				margin 0.5em
-				display inline-block
-				font-weight 600
-			.contenido1
-				*
-					color colorGrayDark2
-				.c-btn
-					color colorGrayDark2	
-					border-color colorGrayDark2	
-					&:hover 
-						background-color colorGrayDark2
-						color white
-				.btn
-					background-color colorGrayDark2
-					color white
-					&:hover 
-						background-color white
-						color colorGrayDark2
-			.contenido2
-				*
-					color white
-				.c-btn
-					color white		
-					border-color white
-					&:hover 
-						background-color white
-						color colorGrayDark2
-				.btn
-					background-color white
-					color colorGrayDark2
-					&:hover 
-						background-color colorGrayDark2
-						color white
-	.loginBox-register
-		padding 0
-		.btn
-			display block
-			padding 1em
-			text-align center
-			color white
-			border-radius 0
-			text-transform uppercase
-			&:hover
-				background-color colorGrayDark2
-	.modPath.breadcrumb, h1
-		display none
-	.section_login
-		padding-top 7%
-	.wrapper
-		background url("../../../media/bloque4228.jpg") #efefef no-repeat
-		background-size cover
-		background-position-y 50%
-			
-.dRegistro	
-	padding-top 0
-	header
-		position relative
-		.header-bar
-			background-color transparent
-			box-shadow none
-		.toolbar-login
-			.toolbar-login-ingresar, .toolbar-login-registro 
-				display none
-		.logo button
-			color colorGrayDark2
-	.registro-box
-		.registroBox-uwrapper
-			.registroBox-form-title
-				text-align center
-				text-transform uppercase
-				font-size 1.3em
-				font-weight 600
-				letter-spacing 0.15em
-				margin-bottom 0.8em
-			.registroBox-tabs
-				margin 0
-				li
-					background-color colorGrayLigth
-					text-align center
-					min-height 49px
-					a
-						font-size 0.78em
-						text-transform uppercase
-						color colorGrayDark2
-						display block
-						padding 1.1em 0
-						font-weight 700
-						letter-spacing 0.1em
-					h3
-						font-size 0.78em
-						text-transform uppercase
-						margin 0 
-						padding 1.2em
-						font-weight 700
-						letter-spacing 0.1em
-					&.registroBox-tabs-item--active
-						background-color white
-						color colorPrimary
-			.registroBox-wform
-				background-color white
-				padding 1.2em
-				legend
-					font-size 0.7em
-					text-transform uppercase
-					font-weight 600
-					color colorPrimary
-					letter-spacing 0.15em
-					text-align left
-				.form-group
-					margin-left 0
-					margin-right 0
-					label
-						font-size 0.7em
-						text-transform initial
-						font-weight 600
-						color colorGrayDark2
-						letter-spacing 0.15em
-						margin-bottom 0.5em
-						text-align left
-					.form-control
-						background-color transparent
-						border 0
-						border-bottom 1px solid colorGrayDark2
-						border-radius 0
-						color colorGrayDark2
-						box-shadow none
-						&:focus
-							box-shadow inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
-				input:-webkit-autofill,
-				input:-webkit-autofill:hover, 
-				input:-webkit-autofill:focus
-				input:-webkit-autofill, 
-				textarea:-webkit-autofill,
-				textarea:-webkit-autofill:hover
-				textarea:-webkit-autofill:focus,
-				select:-webkit-autofill,
-				select:-webkit-autofill:hover,
-				select:-webkit-autofill:focus 
-					border 0
-					-webkit-text-fill-color #333
-					-webkit-box-shadow 0 0 0px 1000px #fff inset
-					transition background-color 5000s ease-in-out 0
-					
-			.registroBox-actions
-				padding 0.8em 0
-				.registroBox-actions-reminder
-					color colorPrimary
-					font-size 0.9em
-				.registroBox-actions-button
-					text-align right
-					.btn
-						border-radius 0
-						padding 0.5em 1em
-						text-transform uppercase
-						font-size 0.8em
-						letter-spacing 0.15em
-						display inline-block
-	.registro-info
-		padding-top 5%
-		.section-registro-texto
-			padding 2em 0
-			h3
-				font-size 1.3em
-				font-weight 300	
-				line-height 1.5
-			.btn, .c-btn
-				font-size 0.78em
-				letter-spacing 0.15em	
-				padding 0.5em 1em
-				margin 0.5em
-				display inline-block
-				font-weight 600
-			.contenido1
-				*
-					color colorGrayDark2
-				.c-btn
-					color colorGrayDark2	
-					border-color colorGrayDark2	
-					&:hover 
-						background-color colorGrayDark2
-						color white
-				.btn
-					background-color colorGrayDark2
-					color white
-					&:hover 
-						background-color white
-						color colorGrayDark2
-			.contenido2
-				*
-					color white
-				.c-btn
-					color white		
-					border-color white
-					&:hover 
-						background-color white
-						color colorGrayDark2
-				.btn
-					background-color white
-					color colorGrayDark2
-					&:hover 
-						background-color colorGrayDark2
-						color white
-	.registroBox-register
-		padding 0
-		.btn
-			display block
-			padding 1em
-			text-align center
-			color white
-			border-radius 0
-			text-transform uppercase
-			&:hover
-				background-color colorGrayDark2
-	.modPath.breadcrumb, h1
-		display none
-	.section-registro
-		padding-top 2em
-	.wrapper
-		background url("../../../media/bloque4264.jpg") #efefef no-repeat
-		background-size cover
-		background-position-x 50%		
-/* end login y register */
 /* mod contextual */
 .modContentLateral ul li span
 	&.list-group-item
@@ -1230,28 +948,6 @@ header.dSede-header
 .contenidoTramite .tituloTab
 	color colorPrimary
 	
-/* tramites */
-.contenidoTramite .tituloTab
-	color colorPrimary
-.dModTramites
-	h1
-		font-size 1.7em
-	.tramite
-		background-color #f5f5f5
-		&:nth-child(even)
-			background-color white
-		h2
-			background-color transparent
-			font-size 1.4em
-			color colorPrimary
-			a
-				color colorPrimary
-				&:visited
-					color colorPrimary
-.contenidoTramite .btn.azul
-	background-color colorPrimary
-	color white					
-/* end tramites */
 /* sidebar-a */
 .mainContent-sidebar
 	hr
@@ -1304,3 +1000,77 @@ header.dSede-header
 	width 100%
 	margin 0
 /* end datepicker */
+.dModUsuarios 
+	background-color #efefef
+	.modContent
+		.login
+			background-color white
+			box-shadow 0px 0px 5px 0px rgba(#d8d8d8,1);
+			form
+				.formLogin
+					padding  1.2em 1.6em
+				.form-group
+					margin-left 0
+					margin-right 0
+					label
+						font-size 0.7em
+						text-transform uppercase
+						font-weight 600
+						color colorGrayDark2
+						letter-spacing 0.15em
+						margin-bottom 0.5em
+					.form-control
+						background-color transparent
+						border 0
+						border-bottom 1px solid colorGrayDark2
+						border-radius 0
+						color colorGrayDark2
+						box-shadow none
+						&:focus
+							box-shadow inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
+				input:-webkit-autofill,
+				input:-webkit-autofill:hover, 
+				input:-webkit-autofill:focus
+				input:-webkit-autofill, 
+				textarea:-webkit-autofill,
+				textarea:-webkit-autofill:hover
+				textarea:-webkit-autofill:focus,
+				select:-webkit-autofill,
+				select:-webkit-autofill:hover,
+				select:-webkit-autofill:focus 
+					border 0
+					-webkit-text-fill-color #333
+					-webkit-box-shadow 0 0 0px 1000px #fff inset
+					transition background-color 5000s ease-in-out 0
+		.btn
+			border-radius 0
+			padding 0.5em 1em
+			text-transform uppercase
+			font-size 0.8em
+			letter-spacing 0.15em
+			display inline-block
+
+// alto contraste
+.configHighContrastTools
+	header:before, footer:after, .zone-two .title-zone h3:before
+		background white !important
+	.zone-three .slider-news .slick-slide .item a:hover .image:before
+		background-color transparent
+		border 1px solid white
+	.zone-three .tab-general .ui-state-active a:before, .zone-three .tab-general .ui-state-active a:link:before, .zone-three .tab-general .ui-state-active a:visited:before
+		border-color black
+	
+.configTextOnlyTools
+	header:before, footer:after, .zone-two .title-zone h3:before
+		background black !important
+	.zone-three .tab-general .ui-state-active a:before, .zone-three .tab-general .ui-state-active a:link:before, .zone-three .tab-general .ui-state-active a:visited:before
+		border-color black
+	.zone-three .slider-news .slick-slide .item a:hover .image:before
+		background-color transparent
+		border 1px solid black
+	header .toolbar ul .dropdown .dropdown-menu
+		background-color white  !important
+	.bottom .enlaces-bottom a:hover
+		background-color black
+		color white
+	

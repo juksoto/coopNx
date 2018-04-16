@@ -1,12 +1,12 @@
-<header id="navbar" class="zone-one">
-    <div class="container">
-        <div class="row">
-        	{!! $blockZone1 !!}
-        </div>
-    </div>
+<header>
+	<section class="container">
+		<section class="row">
+			{!! $blockZone1 !!}
+		</section>
+	</section>
 </header>
 
-<div id="main-content" class="zone-wp zone-two">
+<div id="main-content" class="cInterno">
     <div class="container">
 	    <div class="row">
 	        <div class="col-sm-9 col-xs-12">
@@ -18,7 +18,7 @@
 	    </div>
     </div>
 </div>
-
-<div id="footer-box">
-    {!! $blockZone3 !!}
-</div>
+<footer>
+	{!! $blockZone8 !!}
+</footer>
+<script type="text/javascript" src="/info/{{getClienteFolder()}}/web/portal/js/functions.js"></script>
